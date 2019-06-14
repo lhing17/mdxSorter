@@ -1,4 +1,4 @@
-package cn.gsein.mdx;
+package cn.gsein.mdx.model;
 
 import java.io.File;
 import java.io.IOException;
@@ -79,6 +79,6 @@ public class MdxSorter {
     }
 
     public static void main(String[] args) throws IOException {
-        sort("G:\\git_repos\\JZJH\\jzjh\\resource", "G:\\map_making\\JZJH\\mdx", 1);
+        sort("G:\\map_making\\战棋\\chess", "G:\\map_making\\chess\\mdx", 1);
     }
 }

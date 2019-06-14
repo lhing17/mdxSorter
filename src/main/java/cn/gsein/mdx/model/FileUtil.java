@@ -1,4 +1,4 @@
-package cn.gsein.mdx;
+package cn.gsein.mdx.model;
 
 import java.io.File;
 import java.io.FileInputStream;

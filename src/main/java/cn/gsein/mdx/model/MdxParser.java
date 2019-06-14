@@ -1,6 +1,4 @@
-package cn.gsein.mdx;
-
-import cn.gsein.mdx.model.State;
+package cn.gsein.mdx.model;
 
 import java.io.IOException;
 import java.io.RandomAccessFile;
