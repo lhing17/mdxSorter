@@ -1,9 +1,6 @@
 package cn.gsein.mdx.model;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 
 /*
  * Java实现文件复制、剪切、删除操作
@@ -13,6 +10,31 @@ import java.io.IOException;
 
 public class FileUtil {
 
+    /**
+     * 将文件内容一次性读入字符串中
+     * @param fileName 文件名
+     * @return 代表文件内容的字符串
+     */
+    public static String readToString(String fileName) {
+        String encoding = "UTF-8";
+        File file = new File(fileName);
+        long filelength = file.length();
+        byte[] filecontent = new byte[(int) filelength];
+        try {
+            FileInputStream in = new FileInputStream(file);
+            in.read(filecontent);
+            in.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            return new String(filecontent, encoding);
+        } catch (UnsupportedEncodingException e) {
+            System.err.println("The OS does not support " + encoding);
+            e.printStackTrace();
+            return null;
+        }
+    }
     /**
      * 复制文件或文件夹
      * @param srcPath
@@ -36,6 +58,16 @@ public class FileUtil {
         }
 
         return flag;
+    }
+
+    public static void writeToFile(String content, File file) {
+        try {
+            RandomAccessFile raf = new RandomAccessFile(file, "rw");
+            raf.seek(file.length());
+            raf.writeBytes(content);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
