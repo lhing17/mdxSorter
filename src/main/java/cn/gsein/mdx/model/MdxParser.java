@@ -56,6 +56,6 @@ public class MdxParser {
 
     public static void main(String[] args) throws IOException {
         //System.out.println(parse("src/main/resources/S_XSCZ_wulotus.MDX"));
-        System.out.println(parse("src/main/resources/laser.MDX"));
+        System.out.println(parse("src/main/resources/bafangxiang.mdx"));
     }
 }

@@ -79,6 +79,6 @@ public class MdxSorter {
     }
 
     public static void main(String[] args) throws IOException {
-        sort("G:\\map_making\\风暴循环圈\\storm", "G:\\map_making\\风暴循环圈\\mdx", 1);
+        sort("E:\\IdeaProjects\\jzjh3\\wlhd", "E:\\IdeaProjects\\jzjh3\\wlhd\\output", 1);
     }
 }
