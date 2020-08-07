@@ -13,6 +13,8 @@ import java.util.*;
  */
 public class LniWriter {
 
+    public static final int MAX_LEVEL = 20;
+
     public static void main(String[] args) throws IOException {
         String fileName = "E:\\IdeaProjects\\jzjh3\\wlhd\\units\\abilitydata.xlsx";
         String abiltyFileName = "E:\\IdeaProjects\\jzjh3\\wlhd\\units\\campaignabilitystrings.txt";
@@ -31,9 +33,6 @@ public class LniWriter {
         try (PrintWriter writer = new PrintWriter(outputPath)) {
             for (Map.Entry<String, Map<String, String>> entry : abilityMap.entrySet()) {
                 writer.println("[" + entry.getKey() + "]");
-
-                // 判断技能是否只有1级
-                int levels = getLevel(entry);
 
                 // 处理多等级的map
                 Map<String, String> data = entry.getValue();
@@ -70,7 +69,7 @@ public class LniWriter {
                             }
 
                         } else {
-                            List<String> list = new ArrayList<>(Collections.nCopies(levels, null));
+                            List<String> list = new ArrayList<>(Collections.nCopies(MAX_LEVEL, null));
                             if (whichLevel - 1 < list.size()) {
                                 list.set(whichLevel - 1, stringEntry.getValue());
                             }
@@ -92,8 +91,10 @@ public class LniWriter {
                         } else{
                             writer.write("{");
                             for (String s : list) {
-                                writeValue(writer, stringEntry, s);
-                                writer.write(",");
+                                if (s != null && s != "") {
+                                    writeValue(writer, stringEntry, s);
+                                    writer.write(",");
+                                }
                             }
                             writer.write("}");
                         }
@@ -107,14 +108,6 @@ public class LniWriter {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-    }
-
-    private static int getLevel(Map.Entry<String, Map<String, String>> entry) {
-        String levels = entry.getValue().get("levels");
-        if (levels == null || "1".equals(levels.trim())) {
-            return 1;
-        }
-        return Integer.parseInt(levels);
     }
 
     private static int trimTailingNumber(String key) {
