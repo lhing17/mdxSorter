@@ -13,7 +13,7 @@ import java.util.Map;
 public class AbilityReader {
 
     public static void main(String[] args) throws IOException {
-        String fileName = "E:\\IdeaProjects\\jzjh3\\wlhd\\units\\campaignabilitystrings.txt";
+        String fileName = "E:\\IdeaProjects\\jzjh3\\wlhd\\units\\itemfunc.txt";
         Map<String, Map<String, String>> abilityMap = read(fileName);
         System.out.println(abilityMap);
 
