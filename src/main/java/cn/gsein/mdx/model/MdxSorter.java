@@ -79,6 +79,6 @@ public class MdxSorter {
     }
 
     public static void main(String[] args) throws IOException {
-        sort("E:\\IdeaProjects\\jzjh3\\wlhd", "E:\\IdeaProjects\\jzjh3\\wlhd\\output", 1);
+        sort("E:\\War3Map\\拆地图\\杰八零\\jbl", "E:\\War3Map\\拆地图\\杰八零\\output", 1);
     }
 }

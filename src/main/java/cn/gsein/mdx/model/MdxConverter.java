@@ -66,7 +66,7 @@ public class MdxConverter {
 
     public static void main(String[] args) throws IOException {
         //convert("src/main/resources/huabao.mdx", "src/main/resources/bfx.mdx");
-        Path path= Paths.get("E:\\IdeaProjects\\jzjh3\\wlhd\\output");
+        Path path= Paths.get("E:\\War3Map\\拆地图\\杰八零\\output\\used");
         Map<String, String> map = new HashMap<>();
         Files.walkFileTree(path, new FileVisitor<Path>() {
             @Override
